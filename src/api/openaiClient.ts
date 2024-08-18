@@ -5,7 +5,7 @@ dotenv.config();
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-const getRandomNumber = async (temperature?: number) => {
+const generateRandomNumber = async (temperature?: number) => {
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -13,16 +13,16 @@ const getRandomNumber = async (temperature?: number) => {
         { role: "system", content: "You are a helpful assistant." },
         {
           role: "user",
-          content:
-            "Reply with a random valid stringified number from 0 to 100.",
+          content: "Reply with a random valid number from 0 to 99.",
         },
       ],
       temperature,
       max_tokens: 20,
     });
 
-    return 10;
-    console.log(completion.choices[0].message);
+    const result: string | undefined =
+      completion.choices[0].message.content?.toString();
+    return parseInt(result as string);
   } catch (error) {
     console.error(error);
   }
@@ -34,10 +34,11 @@ export const generateRandomNumbersArray = async (
   try {
     // Generates an array of 'count' random numbers between 0 and 100
     const randomNumbers: number[] = [];
-    const randomNumber = await getRandomNumber();
     for (let i = 0; i < count; i++) {
+      const randomNumber = await generateRandomNumber();
       randomNumbers.push(randomNumber as number);
     }
+    console.log(randomNumbers);
     return randomNumbers;
   } catch (error) {
     console.error(error);

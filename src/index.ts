@@ -1,2 +1,3 @@
-require("dotenv").config();
-const apiKey = process.env.OPENAI_API_KEY;
+import plotGraphDistribution from "./utils/plotter.js";
+
+plotGraphDistribution();
