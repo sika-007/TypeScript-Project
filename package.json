@@ -1,0 +1,25 @@
+{
+  "name": "typescript-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.4.0",
+    "asciichart": "^1.5.25",
+    "axios": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "openai": "^4.56.0",
+    "ts-node": "^10.9.2"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/asciichart": "^1.5.8"
+  }
+}
