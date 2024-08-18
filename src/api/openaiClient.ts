@@ -29,13 +29,14 @@ const generateRandomNumber = async (temperature?: number) => {
 };
 
 export const generateRandomNumbersArray = async (
-  count: number
+  count: number,
+  temperature?: number
 ): Promise<Number[] | void> => {
   try {
     // Generates an array of 'count' random numbers between 0 and 100
     const randomNumbers: number[] = [];
     for (let i = 0; i < count; i++) {
-      const randomNumber = await generateRandomNumber();
+      const randomNumber = await generateRandomNumber(temperature); // Pass the temperature (between 0 and 2) into the generateRandomNumber function here. This will determine the degree of randomness of the results you get
       randomNumbers.push(randomNumber as number);
     }
     console.log(randomNumbers);

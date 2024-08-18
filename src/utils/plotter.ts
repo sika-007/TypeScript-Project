@@ -11,9 +11,9 @@ export function plotPoints(numbers: number[]): Array<number> {
   return frequency;
 }
 
-export default async function plotGraphDistribution() {
+export default async function plotGraphDistribution(temperature: number) {
   try {
-    const randomNumbers = await generateRandomNumbersArray(10);
+    const randomNumbers = await generateRandomNumbersArray(10, temperature);
     console.log(asciichart.plot(plotPoints(randomNumbers as number[])));
   } catch (error) {
     console.error(error);
