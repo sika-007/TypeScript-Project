@@ -7,6 +7,7 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const generateRandomNumber = async (temperature?: number) => {
   try {
+    // API call to get random number from openAI API
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -22,7 +23,7 @@ const generateRandomNumber = async (temperature?: number) => {
 
     const result: string | undefined =
       completion.choices[0].message.content?.toString();
-    return parseInt(result as string);
+    return parseInt(result as string); // Convert string response to number
   } catch (error) {
     console.error(error);
   }
@@ -36,7 +37,7 @@ export const generateRandomNumbersArray = async (
     // Generates an array of 'count' random numbers between 0 and 100
     const randomNumbers: number[] = [];
     for (let i = 0; i < count; i++) {
-      const randomNumber = await generateRandomNumber(temperature); // Pass the temperature (between 0 and 2) into the generateRandomNumber function here. This will determine the degree of randomness of the results you get
+      const randomNumber = await generateRandomNumber(temperature); 
       randomNumbers.push(randomNumber as number);
     }
     console.log(randomNumbers);
