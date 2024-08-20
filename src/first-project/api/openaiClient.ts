@@ -37,7 +37,8 @@ export const generateRandomNumbersArray = async (
     // Generates an array of 'count' random numbers between 0 and 100
     const randomNumbers: number[] = [];
     for (let i = 0; i < count; i++) {
-      const randomNumber = await generateRandomNumber(temperature); 
+      const randomNumber = await generateRandomNumber(temperature);
+      console.log(randomNumber);
       randomNumbers.push(randomNumber as number);
     }
     console.log(randomNumbers);

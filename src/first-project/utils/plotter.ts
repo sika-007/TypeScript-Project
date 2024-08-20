@@ -14,7 +14,7 @@ export function plotPoints(numbers: number[]): Array<number> {
 export default async function plotGraphDistribution(temperature: number) {
   if (temperature <= 2 && temperature >= 0) {
     try {
-      const randomNumbers = await generateRandomNumbersArray(10, temperature);
+      const randomNumbers = await generateRandomNumbersArray(200, temperature);
       console.log(asciichart.plot(plotPoints(randomNumbers as number[])));
     } catch (error) {
       console.error(error);

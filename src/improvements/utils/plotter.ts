@@ -13,7 +13,7 @@ export function plotPoints(numbers: number[]): Array<number> {
 
 export default async function plotGraphDistribution() {
   try {
-    const randomNumbers = await generateRandomNumbersArray(10);
+    const randomNumbers = await generateRandomNumbersArray(200);
     console.log(asciichart.plot(plotPoints(randomNumbers as number[])));
   } catch (error) {
     console.error(error);

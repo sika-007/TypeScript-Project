@@ -62,6 +62,7 @@ export const generateRandomNumbersArray = async (
     const randomNumbers: number[] = [];
     for (let i = 0; i < count; i++) {
       const randomNumber = await generateRandomNumber();
+      console.log(randomNumber);
       randomNumbers.push(randomNumber as number);
     }
     console.log(randomNumbers);
