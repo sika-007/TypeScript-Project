@@ -56,13 +56,12 @@ async function generateRandomNumber() {
 
 export const generateRandomNumbersArray = async (
   count: number
-): Promise<Number[] | void> => {
+): Promise<number[]> => {
+  const randomNumbers: number[] = [];
   try {
     // Generates an array of 'count' random numbers between 0 and 100 generated from summaries
-    const randomNumbers: number[] = [];
     for (let i = 0; i < count; i++) {
       const randomNumber = await generateRandomNumber();
-      console.log(randomNumber);
       randomNumbers.push(randomNumber as number);
     }
     console.log(randomNumbers);
@@ -70,4 +69,5 @@ export const generateRandomNumbersArray = async (
   } catch (error) {
     console.error(error);
   }
+  return randomNumbers;
 };

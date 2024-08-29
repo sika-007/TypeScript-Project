@@ -15,11 +15,12 @@
     "asciichart": "^1.5.25",
     "axios": "^1.7.4",
     "dotenv": "^16.4.5",
-    "openai": "^4.56.0",
-    "ts-node": "^10.9.2"
+    "openai": "^4.56.0"
   },
   "type": "module",
   "devDependencies": {
-    "@types/asciichart": "^1.5.8"
+    "@types/asciichart": "^1.5.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }

@@ -1,5 +1,4 @@
 import asciichart from "asciichart";
-import { generateRandomNumbersArray } from "../api/openaiClient.js";
 
 export function plotPoints(numbers: number[]): Array<number> {
   const frequency = new Array(101).fill(0);
@@ -11,10 +10,9 @@ export function plotPoints(numbers: number[]): Array<number> {
   return frequency;
 }
 
-export default async function plotGraphDistribution() {
+export async function plotGraphDistribution(numbersArray: number[]) {
   try {
-    const randomNumbers = await generateRandomNumbersArray(200);
-    console.log(asciichart.plot(plotPoints(randomNumbers as number[])));
+    console.log(asciichart.plot(plotPoints(numbersArray as number[])));
   } catch (error) {
     console.error(error);
   }
